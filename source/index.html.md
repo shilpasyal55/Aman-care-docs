@@ -593,3 +593,178 @@ name | String | Name of category
  User must be authorized.Send user token in the header.
 </aside>
 
+
+# Products
+
+## Save Product
+
+> Success-Response:
+
+```json
+
+HTTP 200 OK
+{
+  "msg": 1
+}
+
+```
+
+> Error-Response:
+
+```json
+
+HTTP 422 OK
+{
+  "msg": 0,
+  "error": "Product name can't be blank"
+}
+
+```
+
+Save new Product
+
+### HTTP Request
+
+`POST https://amancover.herokuapp.com/v1/products`
+
+### Query Parameters
+
+Parameter | Type | Description
+--------- | ------- | -----------
+name | String | Name of Product
+quantity | String | Quantity of Product
+category_id | String | Category
+user_id | String | user id
+size | String | size of product
+color | String | color of product
+price | String | price of product
+image | String | image of product
+
+
+<aside class="success">
+ User must be authorized.Send user token in the header.
+</aside>
+
+## Update Product
+
+> Success-Response:
+
+```json
+
+HTTP 200 OK
+{
+  "msg": 1
+}
+
+```
+
+> Error-Response:
+
+```json
+
+HTTP 422 OK
+{
+  "msg": 0,
+  "error": "Unable to update product"
+}
+
+```
+
+Update the existing product
+
+### HTTP Request
+
+`POST https://amancover.herokuapp.com/v1/updateProduct`
+
+### Query Parameters
+
+Parameter | Type | Description
+--------- | ------- | -----------
+name | String | Name of Product
+quantity | String | Quantity of Product
+category_id | String | Category
+user_id | String | user id
+size | String | size of product
+color | String | color of product
+price | String | price of product
+image | String | image of product
+
+<aside class="success">
+ User must be authorized.Send user token in the header.
+</aside>
+
+## Fetch Single Product
+
+> Success-Response:
+
+```json
+
+HTTP 200 OK
+{
+  "msg": 1
+}
+
+```
+
+> Error-Response:
+
+```json
+
+HTTP 422 OK
+{
+  "msg": 0,
+  "error": "Unable to find Product"
+}
+
+```
+
+Fetch Single Product details
+
+### HTTP Request
+
+`GET https://amancover.herokuapp.com/v1/products/:id`
+
+### Query Parameters
+
+Send Id in the url
+
+<aside class="success">
+ User must be authorized.Send user token in the header.
+</aside>
+
+## Fetch All Products
+
+> Success-Response:
+
+```json
+
+HTTP 200 OK
+[
+  {
+    "name" : "data",
+    "quantity" : "data",
+    "category_id" : "1",
+    "user_id" : "1",
+    "size" : "data",
+    "color" : "data",
+    "price" : "data",
+    "image" : "/uploads/dkf87dhfjdfhjd.jpg"
+ }
+]
+
+```
+
+
+Fetch All Product details
+
+### HTTP Request
+
+`GET https://amancover.herokuapp.com/v1/products`
+
+### Query Parameters
+
+No Parameters
+
+<aside class="success">
+ User must be authorized.Send user token in the header.
+</aside>
