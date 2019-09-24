@@ -59,6 +59,8 @@ email | String | User email
 password | String | Password of user
 gst | String | Gst (only for vendor)
 address | String | Address of user
+qualification | String | Qualification of user(only for mr)
+photo | String | Photo of user (only for mr)
 role | String | Value must be => admin,vendor,supplier or mr
 
 
@@ -72,7 +74,8 @@ HTTP 200 OK
 {
   "token": "7dhf8hfjhdjf8rrhjdjfhdf844",
   "msg": 1,
-  "verified": true
+  "verified": true,
+  "role": "vendor"
 }
 
 ```
@@ -195,7 +198,11 @@ HTTP 200 OK
   "gst": "data",
   "address": "data",
   "role": "data",
-  "verified": "data"
+  "verified": "data",
+  "qualification": "data",
+  "is_active": true,
+  "photo": "/uploads/jdfh878.jpg",
+
 }
 
 ```
