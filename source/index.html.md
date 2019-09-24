@@ -386,6 +386,8 @@ name | String | User name
 email | String | User email
 gst | String | Gst (only for vendor)
 address | String | Address of user
+qualification | String | Qualification of user(only for mr)
+photo | String | Photo of user (only for mr)
 
 <aside class="success">
  User must be authorized. Send user token in the header.
