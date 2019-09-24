@@ -436,8 +436,11 @@ name | String | Name of category
 HTTP 200 OK
 [
   {
-    "name": "Seeds",
-    "id": 1
+  "id": 1,
+  "name": "caregory",
+  "is_active": true,
+  "created_at": "2019-09-24T15:36:55.632Z",
+  "updated_at": "2019-09-24T15:36:55.632Z"
   }
 ]
 ```
@@ -458,8 +461,11 @@ Get all the categories
 HTTP 200 OK
 [
   {
-  "name": "Seeds",
-  "id": 1
+  "id": 1,
+  "name": "caregory",
+  "is_active": true,
+  "created_at": "2019-09-24T15:36:55.632Z",
+  "updated_at": "2019-09-24T15:36:55.632Z"
   }
 ]
 
@@ -522,10 +528,12 @@ status | String | true or false
 
 HTTP 200 OK
 {
-  "name": "seeds",
-  "is_active": true
+    "id": 1,
+    "name": "update cateory",
+    "is_active": true,
+    "created_at": "2019-09-24T15:36:55.632Z",
+    "updated_at": "2019-09-24T15:48:42.141Z"
 }
-
 ```
 
 > Error-Response:
@@ -588,11 +596,11 @@ Update single category
 Parameter | Type | Description
 --------- | ------- | -----------
 name | String | Name of category
+category_id | String | ID of category
 
 <aside class="success">
  User must be authorized.Send user token in the header.
 </aside>
-
 
 # Products
 
@@ -688,6 +696,7 @@ size | String | size of product
 color | String | color of product
 price | String | price of product
 image | String | image of product
+id | String | id of product
 
 <aside class="success">
  User must be authorized.Send user token in the header.
@@ -700,9 +709,21 @@ image | String | image of product
 ```json
 
 HTTP 200 OK
-{
-  "msg": 1
-}
+  {
+      "id": 1,
+      "category_id": 1,
+      "user_id": 1,
+      "name": "jhj",
+      "size": "uy",
+      "quantity": "7",
+      "color": "red",
+      "price": "89",
+      "image": null,
+      "created_at": "2019-09-21T06:17:51.157Z",
+      "updated_at": "2019-09-21T06:17:51.157Z",
+      "is_active": true,
+      "category_name": "xyz"
+  }
 
 ```
 
@@ -740,20 +761,39 @@ Send Id in the url
 
 HTTP 200 OK
 [
-  {
-    "name" : "data",
-    "quantity" : "data",
-    "category_id" : "1",
-    "user_id" : "1",
-    "size" : "data",
-    "color" : "data",
-    "price" : "data",
-    "image" : "/uploads/dkf87dhfjdfhjd.jpg"
- }
+    {
+        "id": 1,
+        "category_id": 1,
+        "user_id": 1,
+        "name": "jhj",
+        "size": "uy",
+        "quantity": "7",
+        "color": "red",
+        "price": "89",
+        "image": null,
+        "created_at": "2019-09-21T06:17:51.157Z",
+        "updated_at": "2019-09-21T06:17:51.157Z",
+        "is_active": true,
+        "category_name": "xyz"
+    },
+    {
+        "id": 2,
+        "category_id": 1,
+        "user_id": 1,
+        "name": "jhjjdhfjdf",
+        "size": " uy",
+        "quantity": " 7",
+        "color": " reddfdf",
+        "price": " 89",
+        "image": "/uploads/3cfbd092d5cf1e63Logo__1_.png",
+        "created_at": "2019-09-21T06:22:32.113Z",
+        "updated_at": "2019-09-21T06:22:32.113Z",
+        "is_active": true,
+        "category_name": "xyz"
+    }
 ]
 
 ```
-
 
 Fetch All Product details
 
