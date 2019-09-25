@@ -420,7 +420,8 @@ HTTP 422 OK
 
 ```
 
-Save new Category
+Save new Category.
+Only Admin can save the category otherwise you will get not authorized error.
 
 ### HTTP Request
 
@@ -512,7 +513,9 @@ HTTP 422 OK
 
 ```
 
-Update category status to active and inactive 
+Update category status to active and inactive.
+Only admin can update the category status otherwise you will get the not authorized error
+
 
 ### HTTP Request
 
@@ -594,7 +597,9 @@ HTTP 422 OK
 }
 
 ```
-Update single category
+Update single category.
+Only admin can update the category otherwise you will get the not authorized error
+
 
 ### HTTP Request
 
@@ -638,7 +643,8 @@ HTTP 422 OK
 
 ```
 
-Save new Product
+Save new Product.
+Only admin can save the products otherwise you will get the not authorized error
 
 ### HTTP Request
 
@@ -687,7 +693,9 @@ HTTP 422 OK
 
 ```
 
-Update the existing product
+Update the existing product.
+Only admin can update the product otherwise you will get not authorized error
+
 
 ### HTTP Request
 
@@ -817,3 +825,256 @@ No Parameters
 <aside class="success">
  User must be authorized.Send user token in the header.
 </aside>
+
+# Orders
+
+## Save Order
+
+> Success-Response:
+
+```json
+
+HTTP 200 OK
+{
+  "msg": 1
+}
+
+```
+
+> Error-Response:
+
+```json
+
+HTTP 422 OK
+{
+  "msg": 0,
+  "error": "material can't be blank"
+}
+
+```
+
+Save new Order
+
+### HTTP Request
+
+`POST https://amancover.herokuapp.com/v1/orders`
+
+### Query Parameters
+
+Parameter | Type | Description
+--------- | ------- | -----------
+product_id | String | Id of Product
+material | String | material of Product
+quantity | String | quantity of the product
+price | String | price
+brand_logo | String | Photo of brand logo
+firm_name | String | Firm name
+address | String | Address
+mobile | String | Mobile
+
+<aside class="success">
+ User must be authorized.Send user token in the header.
+</aside>
+
+## Fetch All Orders
+
+> Success-Response:
+
+```json
+
+HTTP 200 OK
+{
+    "msg": 1,
+    "orders": [
+        {
+            "id": 1,
+            "user_id": 2,
+            "product_id": 1,
+            "material": "Cootom",
+            "quantity": "6",
+            "price": "200",
+            "brand_logo": "/uploads/89faa718450788c2Logo__1_.png",
+            "firm_name": "nugen",
+            "address": "jalandhar",
+            "mobile": "8787888",
+            "created_at": "2019-09-25T07:09:44.011Z",
+            "updated_at": "2019-09-25T07:09:44.011Z",
+            "confirmed": false,
+            "product_name": "nugen",
+            "user_name": "shilpa"
+        }
+    ]
+}
+
+```
+
+Fetch all orders of all users
+
+### HTTP Request
+
+`GET https://amancover.herokuapp.com/v1/orders`
+
+### Query Parameters
+
+No parameters
+
+<aside class="success">
+ User must be authorized.Send user token in the header.
+</aside>
+
+## Fetch Single Order detail
+
+> Success-Response:
+
+```json
+
+HTTP 200 OK
+{
+    "msg": 1,
+    "order": {
+        "id": 1,
+        "user_id": 2,
+        "product_id": 1,
+        "material": "Cootom",
+        "quantity": "6",
+        "price": "200",
+        "brand_logo": "/uploads/89faa718450788c2Logo__1_.png",
+        "firm_name": "nugen",
+        "address": "jalandhar",
+        "mobile": "8787888",
+        "created_at": "2019-09-25T07:09:44.011Z",
+        "updated_at": "2019-09-25T07:09:44.011Z",
+        "confirmed": false,
+        "product_name": "nugen",
+        "user_name": "shilpa"
+    }
+}
+
+```
+
+> Error-Response:
+
+```json
+
+HTTP 422 OK
+{
+  "msg": 0,
+  "error": "Unable to find order"
+}
+
+```
+
+get single order detail
+
+### HTTP Request
+
+`GET https://amancover.herokuapp.com/v1/orders/:id`
+
+### Query Parameters
+
+Send order id in url
+
+<aside class="success">
+ User must be authorized.Send user token in the header.
+</aside>
+
+## Order Confirmation by Admin
+
+> Success-Response:
+
+```json
+
+HTTP 200 OK
+{
+  "msg": 1
+}
+
+```
+
+> Error-Response:
+
+```json
+
+HTTP 422 OK
+{
+  "msg": 0,
+  "error": "not authorized"
+}
+
+```
+
+Confirm order place by admin.
+Order can only be confirmed by admin otgerwise you will get not authorized error.
+
+### HTTP Request
+
+`POST https://amancover.herokuapp.com/v1/orderConfirmation`
+
+### Query Parameters
+
+Parameter | Type | Description
+--------- | ------- | -----------
+order_id | String | Id of Order
+
+<aside class="success">
+ User must be authorized.Send user token in the header.
+</aside>
+
+## Fetch all orders of particular user
+
+> Success-Response:
+
+```json
+
+HTTP 200 OK
+{
+    "msg": 1,
+    "orders": [
+        {
+            "id": 1,
+            "user_id": 2,
+            "product_id": 1,
+            "material": "Cootom",
+            "quantity": "6",
+            "price": "200",
+            "brand_logo": "/uploads/89faa718450788c2Logo__1_.png",
+            "firm_name": "nugen",
+            "address": "jalandhar",
+            "mobile": "8787888",
+            "created_at": "2019-09-25T07:09:44.011Z",
+            "updated_at": "2019-09-25T07:16:39.036Z",
+            "confirmed": true,
+            "product_name": "nugen",
+            "user_name": "shilpa"
+        }
+    ]
+}
+
+```
+
+> Error-Response:
+
+```json
+
+HTTP 422 OK
+{
+  "msg": 0,
+  "error": "No orders found"
+}
+
+```
+
+Fetch all orders of particular user
+
+### HTTP Request
+
+`GET https://amancover.herokuapp.com/v1/fetchUserOrders`
+
+### Query Parameters
+
+No Parameters
+
+<aside class="success">
+ User must be authorized.Send user token in the header.
+</aside>
+
