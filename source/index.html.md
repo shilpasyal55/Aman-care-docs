@@ -60,7 +60,6 @@ password | String | Password of user
 gst | String | Gst (only for vendor)
 address | String | Address of user
 qualification | String | Qualification of user(only for mr)
-photo | String | Photo of user (only for mr)
 role | String | Value must be => admin,vendor,supplier or mr
 
 
@@ -387,10 +386,51 @@ email | String | User email
 gst | String | Gst (only for vendor)
 address | String | Address of user
 qualification | String | Qualification of user(only for mr)
-photo | String | Photo of user (only for mr)
 
 <aside class="success">
  User must be authorized. Send user token in the header.
+</aside>
+
+## Update/Save User Image
+
+> Success-Response:
+
+```json
+
+HTTP 200 OK
+{
+    "msg": 1,
+    "image": "/uploads/2b482b0f669fbd8f_100_Gift_Voucher.png"
+}
+
+```
+
+> Error-Response
+
+```json
+HTTP 422 Unprocessable entity
+{
+     "msg": 0,
+     "error": "Image can't be blank"
+}
+
+```
+
+Update or save user image.
+Only mr user id allowed to save image
+
+### HTTP Request
+
+`POST https://amancover.herokuapp.com/v1/updateImage`
+
+### Query Parameters
+
+Parameter | Type | Description
+--------- | ------- | -----------
+photo | String | photo of mr user
+
+<aside class="success">
+ User must be authorized to change password.Send user token in the header.
 </aside>
 
 # Categories
