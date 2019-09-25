@@ -294,6 +294,26 @@
                   </li>
               </ul>
           </li>
+          <li>
+            <a href="#orders" class="toc-h1 toc-link" data-title="Orders">Orders</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#save-order" class="toc-h2 toc-link" data-title="Save Order">Save Order</a>
+                  </li>
+                  <li>
+                    <a href="#fetch-all-orders" class="toc-h2 toc-link" data-title="Fetch All Orders">Fetch All Orders</a>
+                  </li>
+                  <li>
+                    <a href="#fetch-single-order-detail" class="toc-h2 toc-link" data-title="Fetch Single Order detail">Fetch Single Order detail</a>
+                  </li>
+                  <li>
+                    <a href="#order-confirmation-by-admin" class="toc-h2 toc-link" data-title="Order Confirmation by Admin">Order Confirmation by Admin</a>
+                  </li>
+                  <li>
+                    <a href="#fetch-all-orders-of-particular-user" class="toc-h2 toc-link" data-title="Fetch all orders of particular user">Fetch all orders of particular user</a>
+                  </li>
+              </ul>
+          </li>
       </ul>
         <ul class="toc-footer">
             <li><a href='http://nugeninfo.com'>AmanCare Cover API Docs</a></li>
@@ -763,7 +783,8 @@ User can login with both email and mobile number</p>
 </span><span class="p">}</span><span class="w">
 
 </span></code></pre>
-<p>Save new Category</p>
+<p>Save new Category.
+Only Admin can save the category otherwise you will get not authorized error.</p>
 <h3 id='http-request-10'>HTTP Request</h3>
 <p><code>POST https://amancover.herokuapp.com/v1/categories</code></p>
 <h3 id='query-parameters-10'>Query Parameters</h3>
@@ -845,7 +866,8 @@ User can login with both email and mobile number</p>
 </span><span class="p">}</span><span class="w">
 
 </span></code></pre>
-<p>Update category status to active and inactive </p>
+<p>Update category status to active and inactive.
+Only admin can update the category status otherwise you will get the not authorized error</p>
 <h3 id='http-request-13'>HTTP Request</h3>
 <p><code>POST https://amancover.herokuapp.com/v1/updateCategoryStatus</code></p>
 <h3 id='query-parameters-11'>Query Parameters</h3>
@@ -927,7 +949,8 @@ User can login with both email and mobile number</p>
 </span><span class="p">}</span><span class="w">
 
 </span></code></pre>
-<p>Update single category</p>
+<p>Update single category.
+Only admin can update the category otherwise you will get the not authorized error</p>
 <h3 id='http-request-15'>HTTP Request</h3>
 <p><code>POST https://amancover.herokuapp.com/v1/updateCategory</code></p>
 <h3 id='query-parameters-13'>Query Parameters</h3>
@@ -975,7 +998,8 @@ User can login with both email and mobile number</p>
 </span><span class="p">}</span><span class="w">
 
 </span></code></pre>
-<p>Save new Product</p>
+<p>Save new Product.
+Only admin can save the products otherwise you will get the not authorized error</p>
 <h3 id='http-request-16'>HTTP Request</h3>
 <p><code>POST https://amancover.herokuapp.com/v1/products</code></p>
 <h3 id='query-parameters-14'>Query Parameters</h3>
@@ -1053,7 +1077,8 @@ User can login with both email and mobile number</p>
 </span><span class="p">}</span><span class="w">
 
 </span></code></pre>
-<p>Update the existing product</p>
+<p>Update the existing product.
+Only admin can update the product otherwise you will get not authorized error</p>
 <h3 id='http-request-17'>HTTP Request</h3>
 <p><code>POST https://amancover.herokuapp.com/v1/updateProduct</code></p>
 <h3 id='query-parameters-15'>Query Parameters</h3>
@@ -1201,6 +1226,265 @@ User can login with both email and mobile number</p>
 <h3 id='http-request-19'>HTTP Request</h3>
 <p><code>GET https://amancover.herokuapp.com/v1/products</code></p>
 <h3 id='query-parameters-17'>Query Parameters</h3>
+<p>No Parameters</p>
+
+<aside class="success">
+ User must be authorized.Send user token in the header.
+</aside>
+<h1 id='orders'>Orders</h1><h2 id='save-order'>Save Order</h2>
+<blockquote>
+<p>Success-Response:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">
+</span><span class="err">HTTP</span><span class="w"> </span><span class="mi">200</span><span class="w"> </span><span class="err">OK</span><span class="w">
+</span><span class="p">{</span><span class="w">
+  </span><span class="s2">"msg"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<blockquote>
+<p>Error-Response:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">
+</span><span class="err">HTTP</span><span class="w"> </span><span class="mi">422</span><span class="w"> </span><span class="err">OK</span><span class="w">
+</span><span class="p">{</span><span class="w">
+  </span><span class="s2">"msg"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"material can't be blank"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<p>Save new Order</p>
+<h3 id='http-request-20'>HTTP Request</h3>
+<p><code>POST https://amancover.herokuapp.com/v1/orders</code></p>
+<h3 id='query-parameters-18'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>product_id</td>
+<td>String</td>
+<td>Id of Product</td>
+</tr>
+<tr>
+<td>material</td>
+<td>String</td>
+<td>material of Product</td>
+</tr>
+<tr>
+<td>quantity</td>
+<td>String</td>
+<td>quantity of the product</td>
+</tr>
+<tr>
+<td>price</td>
+<td>String</td>
+<td>price</td>
+</tr>
+<tr>
+<td>brand_logo</td>
+<td>String</td>
+<td>Photo of brand logo</td>
+</tr>
+<tr>
+<td>firm_name</td>
+<td>String</td>
+<td>Firm name</td>
+</tr>
+<tr>
+<td>address</td>
+<td>String</td>
+<td>Address</td>
+</tr>
+<tr>
+<td>mobile</td>
+<td>String</td>
+<td>Mobile</td>
+</tr>
+</tbody></table>
+
+<aside class="success">
+ User must be authorized.Send user token in the header.
+</aside>
+<h2 id='fetch-all-orders'>Fetch All Orders</h2>
+<blockquote>
+<p>Success-Response:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">
+</span><span class="err">HTTP</span><span class="w"> </span><span class="mi">200</span><span class="w"> </span><span class="err">OK</span><span class="w">
+</span><span class="p">{</span><span class="w">
+    </span><span class="s2">"msg"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"orders"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"product_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"material"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cootom"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"200"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"brand_logo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/uploads/89faa718450788c2Logo__1_.png"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"firm_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"nugen"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jalandhar"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8787888"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-09-25T07:09:44.011Z"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-09-25T07:09:44.011Z"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"confirmed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"product_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"nugen"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"user_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"shilpa"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<p>Fetch all orders of all users</p>
+<h3 id='http-request-21'>HTTP Request</h3>
+<p><code>GET https://amancover.herokuapp.com/v1/orders</code></p>
+<h3 id='query-parameters-19'>Query Parameters</h3>
+<p>No parameters</p>
+
+<aside class="success">
+ User must be authorized.Send user token in the header.
+</aside>
+<h2 id='fetch-single-order-detail'>Fetch Single Order detail</h2>
+<blockquote>
+<p>Success-Response:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">
+</span><span class="err">HTTP</span><span class="w"> </span><span class="mi">200</span><span class="w"> </span><span class="err">OK</span><span class="w">
+</span><span class="p">{</span><span class="w">
+    </span><span class="s2">"msg"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"order"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"product_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"material"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cootom"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"200"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"brand_logo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/uploads/89faa718450788c2Logo__1_.png"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"firm_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"nugen"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jalandhar"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8787888"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-09-25T07:09:44.011Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-09-25T07:09:44.011Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"confirmed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"product_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"nugen"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"user_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"shilpa"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<blockquote>
+<p>Error-Response:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">
+</span><span class="err">HTTP</span><span class="w"> </span><span class="mi">422</span><span class="w"> </span><span class="err">OK</span><span class="w">
+</span><span class="p">{</span><span class="w">
+  </span><span class="s2">"msg"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Unable to find order"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<p>get single order detail</p>
+<h3 id='http-request-22'>HTTP Request</h3>
+<p><code>GET https://amancover.herokuapp.com/v1/orders/:id</code></p>
+<h3 id='query-parameters-20'>Query Parameters</h3>
+<p>Send order id in url</p>
+
+<aside class="success">
+ User must be authorized.Send user token in the header.
+</aside>
+<h2 id='order-confirmation-by-admin'>Order Confirmation by Admin</h2>
+<blockquote>
+<p>Success-Response:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">
+</span><span class="err">HTTP</span><span class="w"> </span><span class="mi">200</span><span class="w"> </span><span class="err">OK</span><span class="w">
+</span><span class="p">{</span><span class="w">
+  </span><span class="s2">"msg"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<blockquote>
+<p>Error-Response:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">
+</span><span class="err">HTTP</span><span class="w"> </span><span class="mi">422</span><span class="w"> </span><span class="err">OK</span><span class="w">
+</span><span class="p">{</span><span class="w">
+  </span><span class="s2">"msg"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"not authorized"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<p>Confirm order place by admin.
+Order can only be confirmed by admin otgerwise you will get not authorized error.</p>
+<h3 id='http-request-23'>HTTP Request</h3>
+<p><code>POST https://amancover.herokuapp.com/v1/orderConfirmation</code></p>
+<h3 id='query-parameters-21'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>order_id</td>
+<td>String</td>
+<td>Id of Order</td>
+</tr>
+</tbody></table>
+
+<aside class="success">
+ User must be authorized.Send user token in the header.
+</aside>
+<h2 id='fetch-all-orders-of-particular-user'>Fetch all orders of particular user</h2>
+<blockquote>
+<p>Success-Response:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">
+</span><span class="err">HTTP</span><span class="w"> </span><span class="mi">200</span><span class="w"> </span><span class="err">OK</span><span class="w">
+</span><span class="p">{</span><span class="w">
+    </span><span class="s2">"msg"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"orders"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"product_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"material"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cootom"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"200"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"brand_logo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/uploads/89faa718450788c2Logo__1_.png"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"firm_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"nugen"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jalandhar"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8787888"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-09-25T07:09:44.011Z"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-09-25T07:16:39.036Z"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"confirmed"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"product_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"nugen"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"user_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"shilpa"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<blockquote>
+<p>Error-Response:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">
+</span><span class="err">HTTP</span><span class="w"> </span><span class="mi">422</span><span class="w"> </span><span class="err">OK</span><span class="w">
+</span><span class="p">{</span><span class="w">
+  </span><span class="s2">"msg"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"No orders found"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<p>Fetch all orders of particular user</p>
+<h3 id='http-request-24'>HTTP Request</h3>
+<p><code>GET https://amancover.herokuapp.com/v1/fetchUserOrders</code></p>
+<h3 id='query-parameters-22'>Query Parameters</h3>
 <p>No Parameters</p>
 
 <aside class="success">
