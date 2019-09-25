@@ -252,6 +252,9 @@
                   <li>
                     <a href="#update-user-info" class="toc-h2 toc-link" data-title="Update User Info">Update User Info</a>
                   </li>
+                  <li>
+                    <a href="#update-save-user-image" class="toc-h2 toc-link" data-title="Update/Save User Image">Update/Save User Image</a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -391,11 +394,6 @@
 <td>qualification</td>
 <td>String</td>
 <td>Qualification of user(only for mr)</td>
-</tr>
-<tr>
-<td>photo</td>
-<td>String</td>
-<td>Photo of user (only for mr)</td>
 </tr>
 <tr>
 <td>role</td>
@@ -751,15 +749,54 @@ User can login with both email and mobile number</p>
 <td>String</td>
 <td>Qualification of user(only for mr)</td>
 </tr>
-<tr>
-<td>photo</td>
-<td>String</td>
-<td>Photo of user (only for mr)</td>
-</tr>
 </tbody></table>
 
 <aside class="success">
  User must be authorized. Send user token in the header.
+</aside>
+<h2 id='update-save-user-image'>Update/Save User Image</h2>
+<blockquote>
+<p>Success-Response:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">
+</span><span class="err">HTTP</span><span class="w"> </span><span class="mi">200</span><span class="w"> </span><span class="err">OK</span><span class="w">
+</span><span class="p">{</span><span class="w">
+    </span><span class="s2">"msg"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/uploads/2b482b0f669fbd8f_100_Gift_Voucher.png"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<blockquote>
+<p>Error-Response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="err">HTTP</span><span class="w"> </span><span class="mi">422</span><span class="w"> </span><span class="err">Unprocessable</span><span class="w"> </span><span class="err">entity</span><span class="w">
+</span><span class="p">{</span><span class="w">
+     </span><span class="s2">"msg"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+     </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Image can't be blank"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<p>Update or save user image.
+Only mr user id allowed to save image</p>
+<h3 id='http-request-10'>HTTP Request</h3>
+<p><code>POST https://amancover.herokuapp.com/v1/updateImage</code></p>
+<h3 id='query-parameters-10'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>photo</td>
+<td>String</td>
+<td>photo of mr user</td>
+</tr>
+</tbody></table>
+
+<aside class="success">
+ User must be authorized to change password.Send user token in the header.
 </aside>
 <h1 id='categories'>Categories</h1><h2 id='save-category'>Save Category</h2>
 <blockquote>
@@ -785,9 +822,9 @@ User can login with both email and mobile number</p>
 </span></code></pre>
 <p>Save new Category.
 Only Admin can save the category otherwise you will get not authorized error.</p>
-<h3 id='http-request-10'>HTTP Request</h3>
+<h3 id='http-request-11'>HTTP Request</h3>
 <p><code>POST https://amancover.herokuapp.com/v1/categories</code></p>
-<h3 id='query-parameters-10'>Query Parameters</h3>
+<h3 id='query-parameters-11'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -822,7 +859,7 @@ Only Admin can save the category otherwise you will get not authorized error.</p
 </span><span class="p">]</span><span class="w">
 </span></code></pre>
 <p>Get all the categories</p>
-<h3 id='http-request-11'>HTTP Request</h3>
+<h3 id='http-request-12'>HTTP Request</h3>
 <p><code>GET https://amancover.herokuapp.com/v1/categories</code></p>
 <h2 id='fetch-active-categories'>Fetch Active Categories</h2>
 <blockquote>
@@ -842,7 +879,7 @@ Only Admin can save the category otherwise you will get not authorized error.</p
 
 </span></code></pre>
 <p>Get all active categories</p>
-<h3 id='http-request-12'>HTTP Request</h3>
+<h3 id='http-request-13'>HTTP Request</h3>
 <p><code>GET https://amancover.herokuapp.com/v1/activeCategories</code></p>
 <h2 id='change-category-status'>Change Category status</h2>
 <blockquote>
@@ -868,9 +905,9 @@ Only Admin can save the category otherwise you will get not authorized error.</p
 </span></code></pre>
 <p>Update category status to active and inactive.
 Only admin can update the category status otherwise you will get the not authorized error</p>
-<h3 id='http-request-13'>HTTP Request</h3>
+<h3 id='http-request-14'>HTTP Request</h3>
 <p><code>POST https://amancover.herokuapp.com/v1/updateCategoryStatus</code></p>
-<h3 id='query-parameters-11'>Query Parameters</h3>
+<h3 id='query-parameters-12'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -919,9 +956,9 @@ Only admin can update the category status otherwise you will get the not authori
 
 </span></code></pre>
 <p>Fetch single category</p>
-<h3 id='http-request-14'>HTTP Request</h3>
+<h3 id='http-request-15'>HTTP Request</h3>
 <p><code>GET https://amancover.herokuapp.com/v1/categories/:id</code></p>
-<h3 id='query-parameters-12'>Query Parameters</h3>
+<h3 id='query-parameters-13'>Query Parameters</h3>
 <p>SEnd id in parameter</p>
 
 <aside class="success">
@@ -951,9 +988,9 @@ Only admin can update the category status otherwise you will get the not authori
 </span></code></pre>
 <p>Update single category.
 Only admin can update the category otherwise you will get the not authorized error</p>
-<h3 id='http-request-15'>HTTP Request</h3>
+<h3 id='http-request-16'>HTTP Request</h3>
 <p><code>POST https://amancover.herokuapp.com/v1/updateCategory</code></p>
-<h3 id='query-parameters-13'>Query Parameters</h3>
+<h3 id='query-parameters-14'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1000,9 +1037,9 @@ Only admin can update the category otherwise you will get the not authorized err
 </span></code></pre>
 <p>Save new Product.
 Only admin can save the products otherwise you will get the not authorized error</p>
-<h3 id='http-request-16'>HTTP Request</h3>
+<h3 id='http-request-17'>HTTP Request</h3>
 <p><code>POST https://amancover.herokuapp.com/v1/products</code></p>
-<h3 id='query-parameters-14'>Query Parameters</h3>
+<h3 id='query-parameters-15'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1079,9 +1116,9 @@ Only admin can save the products otherwise you will get the not authorized error
 </span></code></pre>
 <p>Update the existing product.
 Only admin can update the product otherwise you will get not authorized error</p>
-<h3 id='http-request-17'>HTTP Request</h3>
+<h3 id='http-request-18'>HTTP Request</h3>
 <p><code>POST https://amancover.herokuapp.com/v1/updateProduct</code></p>
-<h3 id='query-parameters-15'>Query Parameters</h3>
+<h3 id='query-parameters-16'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1174,9 +1211,9 @@ Only admin can update the product otherwise you will get not authorized error</p
 
 </span></code></pre>
 <p>Fetch Single Product details</p>
-<h3 id='http-request-18'>HTTP Request</h3>
+<h3 id='http-request-19'>HTTP Request</h3>
 <p><code>GET https://amancover.herokuapp.com/v1/products/:id</code></p>
-<h3 id='query-parameters-16'>Query Parameters</h3>
+<h3 id='query-parameters-17'>Query Parameters</h3>
 <p>Send Id in the url</p>
 
 <aside class="success">
@@ -1223,9 +1260,9 @@ Only admin can update the product otherwise you will get not authorized error</p
 
 </span></code></pre>
 <p>Fetch All Product details</p>
-<h3 id='http-request-19'>HTTP Request</h3>
+<h3 id='http-request-20'>HTTP Request</h3>
 <p><code>GET https://amancover.herokuapp.com/v1/products</code></p>
-<h3 id='query-parameters-17'>Query Parameters</h3>
+<h3 id='query-parameters-18'>Query Parameters</h3>
 <p>No Parameters</p>
 
 <aside class="success">
@@ -1254,9 +1291,9 @@ Only admin can update the product otherwise you will get not authorized error</p
 
 </span></code></pre>
 <p>Save new Order</p>
-<h3 id='http-request-20'>HTTP Request</h3>
+<h3 id='http-request-21'>HTTP Request</h3>
 <p><code>POST https://amancover.herokuapp.com/v1/orders</code></p>
-<h3 id='query-parameters-18'>Query Parameters</h3>
+<h3 id='query-parameters-19'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1340,9 +1377,9 @@ Only admin can update the product otherwise you will get not authorized error</p
 
 </span></code></pre>
 <p>Fetch all orders of all users</p>
-<h3 id='http-request-21'>HTTP Request</h3>
+<h3 id='http-request-22'>HTTP Request</h3>
 <p><code>GET https://amancover.herokuapp.com/v1/orders</code></p>
-<h3 id='query-parameters-19'>Query Parameters</h3>
+<h3 id='query-parameters-20'>Query Parameters</h3>
 <p>No parameters</p>
 
 <aside class="success">
@@ -1388,9 +1425,9 @@ Only admin can update the product otherwise you will get not authorized error</p
 
 </span></code></pre>
 <p>get single order detail</p>
-<h3 id='http-request-22'>HTTP Request</h3>
+<h3 id='http-request-23'>HTTP Request</h3>
 <p><code>GET https://amancover.herokuapp.com/v1/orders/:id</code></p>
-<h3 id='query-parameters-20'>Query Parameters</h3>
+<h3 id='query-parameters-21'>Query Parameters</h3>
 <p>Send order id in url</p>
 
 <aside class="success">
@@ -1420,9 +1457,9 @@ Only admin can update the product otherwise you will get not authorized error</p
 </span></code></pre>
 <p>Confirm order place by admin.
 Order can only be confirmed by admin otgerwise you will get not authorized error.</p>
-<h3 id='http-request-23'>HTTP Request</h3>
+<h3 id='http-request-24'>HTTP Request</h3>
 <p><code>POST https://amancover.herokuapp.com/v1/orderConfirmation</code></p>
-<h3 id='query-parameters-21'>Query Parameters</h3>
+<h3 id='query-parameters-22'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1482,9 +1519,9 @@ Order can only be confirmed by admin otgerwise you will get not authorized error
 
 </span></code></pre>
 <p>Fetch all orders of particular user</p>
-<h3 id='http-request-24'>HTTP Request</h3>
+<h3 id='http-request-25'>HTTP Request</h3>
 <p><code>GET https://amancover.herokuapp.com/v1/fetchUserOrders</code></p>
-<h3 id='query-parameters-22'>Query Parameters</h3>
+<h3 id='query-parameters-23'>Query Parameters</h3>
 <p>No Parameters</p>
 
 <aside class="success">
