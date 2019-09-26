@@ -200,6 +200,7 @@ HTTP 200 OK
   "verified": "data",
   "qualification": "data",
   "is_active": true,
+  "created_by": "self",
   "photo": "/uploads/jdfh878.jpg",
 
 }
@@ -697,7 +698,6 @@ Parameter | Type | Description
 name | String | Name of Product
 quantity | String | Quantity of Product
 category_id | String | Category
-user_id | String | user id
 size | String | size of product
 color | String | color of product
 price | String | price of product
@@ -748,7 +748,6 @@ Parameter | Type | Description
 name | String | Name of Product
 quantity | String | Quantity of Product
 category_id | String | Category
-user_id | String | user id
 size | String | size of product
 color | String | color of product
 price | String | price of product
