@@ -349,7 +349,10 @@
 </span><span class="p">}</span><span class="w">
 
 </span></code></pre>
-<p>This endpoint will save a new user.</p>
+<p>This endpoint will save a new user.
+For Supplier =&gt; Name,Address,Mobile,Email,Role,Password
+For Vendor =&gt; Name,Address,Mobile,Email,GST,Role,Password
+For MR =&gt; Name,Address,Mobile,Email,Qualification,Role,Password</p>
 <h3 id='http-request'>HTTP Request</h3>
 <p><code>POST https://amancover.herokuapp.com/v1/users</code></p>
 <h3 id='query-parameters'>Query Parameters</h3>
@@ -1156,6 +1159,11 @@ Only admin can update the product otherwise you will get not authorized error</p
 <td>image</td>
 <td>String</td>
 <td>image of product</td>
+</tr>
+<tr>
+<td>image_updated</td>
+<td>String</td>
+<td>send true or false if image is updated</td>
 </tr>
 <tr>
 <td>id</td>
