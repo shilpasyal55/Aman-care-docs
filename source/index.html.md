@@ -44,6 +44,9 @@ HTTP 422 Unprocessable entity
 ```
 
 This endpoint will save a new user.
+For Supplier => Name,Address,Mobile,Email,Role,Password
+For Vendor => Name,Address,Mobile,Email,GST,Role,Password
+For MR => Name,Address,Mobile,Email,Qualification,Role,Password
 
 ### HTTP Request
 
@@ -752,6 +755,7 @@ size | String | size of product
 color | String | color of product
 price | String | price of product
 image | String | image of product
+image_updated | String | send true or false if image is updated
 id | String | id of product
 
 <aside class="success">
