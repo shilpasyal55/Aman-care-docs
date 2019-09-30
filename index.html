@@ -315,6 +315,9 @@
                   <li>
                     <a href="#fetch-all-orders-of-particular-user" class="toc-h2 toc-link" data-title="Fetch all orders of particular user">Fetch all orders of particular user</a>
                   </li>
+                  <li>
+                    <a href="#payment-of-order" class="toc-h2 toc-link" data-title="Payment of Order">Payment of Order</a>
+                  </li>
               </ul>
           </li>
       </ul>
@@ -1340,6 +1343,11 @@ Only admin can update the product otherwise you will get not authorized error</p
 <td>String</td>
 <td>Mobile</td>
 </tr>
+<tr>
+<td>user_id</td>
+<td>String</td>
+<td>user id of vendor ( Send it only if vendor is created by mr)</td>
+</tr>
 </tbody></table>
 
 <aside class="success">
@@ -1351,28 +1359,31 @@ Only admin can update the product otherwise you will get not authorized error</p
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="w">
 </span><span class="err">HTTP</span><span class="w"> </span><span class="mi">200</span><span class="w"> </span><span class="err">OK</span><span class="w">
-</span><span class="p">{</span><span class="w">
-    </span><span class="s2">"msg"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"orders"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+  </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"product_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"material"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cootom"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"200"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"brand_logo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/uploads/89faa718450788c2Logo__1_.png"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"firm_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"nugen"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jalandhar"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8787888"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-09-25T07:09:44.011Z"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-09-25T07:09:44.011Z"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"confirmed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"product_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"nugen"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"user_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"shilpa"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-    </span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"product_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"material"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cotton"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"brand_logo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/uploads/76bf21e4ee7c401b_100_Gift_Voucher.png"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"firm_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jhjh"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dkjf"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"78787878"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-09-30T07:52:42.492Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-09-30T07:52:42.492Z"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"confirmed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"payment_status"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"payment_description"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"order_by_role"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mr"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"order_by_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"product_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"nugennnd"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"user_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"varun1"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"order_by_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"aman"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"order_by_mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7894561230"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
 
 </span></code></pre>
 <p>Fetch all orders of all users</p>
@@ -1391,24 +1402,27 @@ Only admin can update the product otherwise you will get not authorized error</p
 <pre class="highlight json tab-json"><code><span class="w">
 </span><span class="err">HTTP</span><span class="w"> </span><span class="mi">200</span><span class="w"> </span><span class="err">OK</span><span class="w">
 </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"msg"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"order"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"product_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"material"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cootom"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"200"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"brand_logo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/uploads/89faa718450788c2Logo__1_.png"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"firm_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"nugen"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jalandhar"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8787888"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-09-25T07:09:44.011Z"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-09-25T07:09:44.011Z"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"confirmed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"product_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"nugen"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"user_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"shilpa"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"product_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"material"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cotton"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"brand_logo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/uploads/76bf21e4ee7c401b_100_Gift_Voucher.png"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"firm_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jhjh"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dkjf"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"78787878"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-09-30T07:52:42.492Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-09-30T07:52:42.492Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"confirmed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"payment_status"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"payment_description"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"order_by_role"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mr"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"order_by_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"product_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"nugennnd"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"user_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"varun1"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"order_by_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"aman"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"order_by_mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7894561230"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
 </span></code></pre>
@@ -1455,7 +1469,7 @@ Only admin can update the product otherwise you will get not authorized error</p
 
 </span></code></pre>
 <p>Confirm order place by admin.
-Order can only be confirmed by admin otgerwise you will get not authorized error.</p>
+Order can only be confirmed by admin otherwise you will get not authorized error.</p>
 <h3 id='http-request-24'>HTTP Request</h3>
 <p><code>POST https://amancover.herokuapp.com/v1/orderConfirmation</code></p>
 <h3 id='query-parameters-22'>Query Parameters</h3>
@@ -1482,28 +1496,31 @@ Order can only be confirmed by admin otgerwise you will get not authorized error
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="w">
 </span><span class="err">HTTP</span><span class="w"> </span><span class="mi">200</span><span class="w"> </span><span class="err">OK</span><span class="w">
-</span><span class="p">{</span><span class="w">
-    </span><span class="s2">"msg"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"orders"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"product_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"material"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cootom"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"6"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"200"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"brand_logo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/uploads/89faa718450788c2Logo__1_.png"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"firm_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"nugen"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jalandhar"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"8787888"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-09-25T07:09:44.011Z"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-09-25T07:16:39.036Z"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"confirmed"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"product_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"nugen"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"user_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"shilpa"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-    </span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
+  </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"product_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"material"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cotton"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"brand_logo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/uploads/76bf21e4ee7c401b_100_Gift_Voucher.png"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"firm_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jhjh"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dkjf"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"78787878"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-09-30T07:52:42.492Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-09-30T07:52:42.492Z"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"confirmed"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"payment_status"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"payment_description"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"order_by_role"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mr"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"order_by_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"product_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"nugennnd"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"user_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"varun1"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"order_by_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"aman"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"order_by_mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7894561230"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
 
 </span></code></pre>
 <blockquote>
@@ -1522,6 +1539,60 @@ Order can only be confirmed by admin otgerwise you will get not authorized error
 <p><code>GET https://amancover.herokuapp.com/v1/fetchUserOrders</code></p>
 <h3 id='query-parameters-23'>Query Parameters</h3>
 <p>No Parameters</p>
+
+<aside class="success">
+ User must be authorized.Send user token in the header.
+</aside>
+<h2 id='payment-of-order'>Payment of Order</h2>
+<blockquote>
+<p>Success-Response:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">
+</span><span class="err">HTTP</span><span class="w"> </span><span class="mi">200</span><span class="w"> </span><span class="err">OK</span><span class="w">
+</span><span class="p">{</span><span class="w">
+  </span><span class="s2">"msg"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<blockquote>
+<p>Error-Response:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">
+</span><span class="err">HTTP</span><span class="w"> </span><span class="mi">422</span><span class="w"> </span><span class="err">OK</span><span class="w">
+</span><span class="p">{</span><span class="w">
+  </span><span class="s2">"msg"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Unable to update Payment status.Please Try Again"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<p>Do Payment of the order. By Default the payment status is &quot;not initialized&quot;.
+If successfull then send &quot;success&quot; else &quot;failed&quot;</p>
+<h3 id='http-request-26'>HTTP Request</h3>
+<p><code>POST https://amancover.herokuapp.com/v1/paymentConfirmation</code></p>
+<h3 id='query-parameters-24'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>order_id</td>
+<td>String</td>
+<td>Id of Order</td>
+</tr>
+<tr>
+<td>payment_status</td>
+<td>String</td>
+<td>By default &quot;not initialized&quot;, otherwise send &quot;success&quot; and &quot;failed&quot;</td>
+</tr>
+<tr>
+<td>payment_description</td>
+<td>String</td>
+<td>if failed then send the description of the failure</td>
+</tr>
+</tbody></table>
 
 <aside class="success">
  User must be authorized.Send user token in the header.
