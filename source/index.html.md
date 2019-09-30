@@ -914,6 +914,7 @@ brand_logo | String | Photo of brand logo
 firm_name | String | Firm name
 address | String | Address
 mobile | String | Mobile
+user_id | String | user id of vendor ( Send it only if vendor is created by mr)
 
 <aside class="success">
  User must be authorized.Send user token in the header.
@@ -926,28 +927,31 @@ mobile | String | Mobile
 ```json
 
 HTTP 200 OK
-{
-    "msg": 1,
-    "orders": [
+  [
         {
-            "id": 1,
-            "user_id": 2,
-            "product_id": 1,
-            "material": "Cootom",
-            "quantity": "6",
-            "price": "200",
-            "brand_logo": "/uploads/89faa718450788c2Logo__1_.png",
-            "firm_name": "nugen",
-            "address": "jalandhar",
-            "mobile": "8787888",
-            "created_at": "2019-09-25T07:09:44.011Z",
-            "updated_at": "2019-09-25T07:09:44.011Z",
-            "confirmed": false,
-            "product_name": "nugen",
-            "user_name": "shilpa"
-        }
-    ]
-}
+        "id": 3,
+        "user_id": 3,
+        "product_id": 1,
+        "material": "cotton",
+        "quantity": "2",
+        "price": "10",
+        "brand_logo": "/uploads/76bf21e4ee7c401b_100_Gift_Voucher.png",
+        "firm_name": "jhjh",
+        "address": "dkjf",
+        "mobile": "78787878",
+        "created_at": "2019-09-30T07:52:42.492Z",
+        "updated_at": "2019-09-30T07:52:42.492Z",
+        "confirmed": false,
+        "payment_status": null,
+        "payment_description": null,
+        "order_by_role": "mr",
+        "order_by_id": 2,
+        "product_name": "nugennnd",
+        "user_name": "varun1",
+        "order_by_name": "aman",
+        "order_by_mobile": "7894561230"
+    }
+  ]
 
 ```
 
@@ -973,24 +977,27 @@ No parameters
 
 HTTP 200 OK
 {
-    "msg": 1,
-    "order": {
-        "id": 1,
-        "user_id": 2,
-        "product_id": 1,
-        "material": "Cootom",
-        "quantity": "6",
-        "price": "200",
-        "brand_logo": "/uploads/89faa718450788c2Logo__1_.png",
-        "firm_name": "nugen",
-        "address": "jalandhar",
-        "mobile": "8787888",
-        "created_at": "2019-09-25T07:09:44.011Z",
-        "updated_at": "2019-09-25T07:09:44.011Z",
-        "confirmed": false,
-        "product_name": "nugen",
-        "user_name": "shilpa"
-    }
+    "id": 3,
+    "user_id": 3,
+    "product_id": 1,
+    "material": "cotton",
+    "quantity": "2",
+    "price": "10",
+    "brand_logo": "/uploads/76bf21e4ee7c401b_100_Gift_Voucher.png",
+    "firm_name": "jhjh",
+    "address": "dkjf",
+    "mobile": "78787878",
+    "created_at": "2019-09-30T07:52:42.492Z",
+    "updated_at": "2019-09-30T07:52:42.492Z",
+    "confirmed": false,
+    "payment_status": null,
+    "payment_description": null,
+    "order_by_role": "mr",
+    "order_by_id": 2,
+    "product_name": "nugennnd",
+    "user_name": "varun1",
+    "order_by_name": "aman",
+    "order_by_mobile": "7894561230"
 }
 
 ```
@@ -1047,7 +1054,7 @@ HTTP 422 OK
 ```
 
 Confirm order place by admin.
-Order can only be confirmed by admin otgerwise you will get not authorized error.
+Order can only be confirmed by admin otherwise you will get not authorized error.
 
 ### HTTP Request
 
@@ -1070,28 +1077,31 @@ order_id | String | Id of Order
 ```json
 
 HTTP 200 OK
-{
-    "msg": 1,
-    "orders": [
-        {
-            "id": 1,
-            "user_id": 2,
-            "product_id": 1,
-            "material": "Cootom",
-            "quantity": "6",
-            "price": "200",
-            "brand_logo": "/uploads/89faa718450788c2Logo__1_.png",
-            "firm_name": "nugen",
-            "address": "jalandhar",
-            "mobile": "8787888",
-            "created_at": "2019-09-25T07:09:44.011Z",
-            "updated_at": "2019-09-25T07:16:39.036Z",
-            "confirmed": true,
-            "product_name": "nugen",
-            "user_name": "shilpa"
-        }
-    ]
-}
+  [
+    {
+      "id": 3,
+      "user_id": 3,
+      "product_id": 1,
+      "material": "cotton",
+      "quantity": "2",
+      "price": "10",
+      "brand_logo": "/uploads/76bf21e4ee7c401b_100_Gift_Voucher.png",
+      "firm_name": "jhjh",
+      "address": "dkjf",
+      "mobile": "78787878",
+      "created_at": "2019-09-30T07:52:42.492Z",
+      "updated_at": "2019-09-30T07:52:42.492Z",
+      "confirmed": false,
+      "payment_status": null,
+      "payment_description": null,
+      "order_by_role": "mr",
+      "order_by_id": 2,
+      "product_name": "nugennnd",
+      "user_name": "varun1",
+      "order_by_name": "aman",
+      "order_by_mobile": "7894561230"
+    }
+  ]
 
 ```
 
@@ -1116,6 +1126,51 @@ Fetch all orders of particular user
 ### Query Parameters
 
 No Parameters
+
+<aside class="success">
+ User must be authorized.Send user token in the header.
+</aside>
+
+
+## Payment of Order
+
+> Success-Response:
+
+```json
+
+HTTP 200 OK
+{
+  "msg": 1
+}
+
+```
+
+> Error-Response:
+
+```json
+
+HTTP 422 OK
+{
+  "msg": 0,
+  "error": "Unable to update Payment status.Please Try Again"
+}
+
+```
+
+Do Payment of the order. By Default the payment status is "not initialized".
+If successfull then send "success" else "failed"
+
+### HTTP Request
+
+`POST https://amancover.herokuapp.com/v1/paymentConfirmation`
+
+### Query Parameters
+
+Parameter | Type | Description
+--------- | ------- | -----------
+order_id | String | Id of Order
+payment_status | String | By default "not initialized", otherwise send "success" and "failed"
+payment_description | String | if failed then send the description of the failure
 
 <aside class="success">
  User must be authorized.Send user token in the header.
