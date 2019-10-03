@@ -914,6 +914,7 @@ brand_logo | String | Photo of brand logo
 firm_name | String | Firm name
 address | String | Address
 mobile | String | Mobile
+payment_mode | String | ed cod, online
 user_id | String | user id of vendor ( Send it only if vendor is created by mr)
 
 <aside class="success">
@@ -928,7 +929,7 @@ user_id | String | user id of vendor ( Send it only if vendor is created by mr)
 
 HTTP 200 OK
   [
-        {
+    {
         "id": 3,
         "user_id": 3,
         "product_id": 1,
@@ -946,6 +947,8 @@ HTTP 200 OK
         "payment_description": null,
         "order_by_role": "mr",
         "order_by_id": 2,
+        "payment_mode": "cod",
+        "payment_id": null,
         "product_name": "nugennnd",
         "user_name": "varun1",
         "order_by_name": "aman",
@@ -994,6 +997,8 @@ HTTP 200 OK
     "payment_description": null,
     "order_by_role": "mr",
     "order_by_id": 2,
+    "payment_mode": "cod",
+    "payment_id": null,
     "product_name": "nugennnd",
     "user_name": "varun1",
     "order_by_name": "aman",
@@ -1096,6 +1101,8 @@ HTTP 200 OK
       "payment_description": null,
       "order_by_role": "mr",
       "order_by_id": 2,
+      "payment_mode": "cod",
+      "payment_id": null,
       "product_name": "nugennnd",
       "user_name": "varun1",
       "order_by_name": "aman",
@@ -1169,6 +1176,7 @@ If successfull then send "success" else "failed"
 Parameter | Type | Description
 --------- | ------- | -----------
 order_id | String | Id of Order
+payment_id | String | Id of Payment
 payment_status | String | By default "not initialized", otherwise send "success" and "failed"
 payment_description | String | if failed then send the description of the failure
 
