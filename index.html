@@ -1344,6 +1344,11 @@ Only admin can update the product otherwise you will get not authorized error</p
 <td>Mobile</td>
 </tr>
 <tr>
+<td>payment_mode</td>
+<td>String</td>
+<td>ed cod, online</td>
+</tr>
+<tr>
 <td>user_id</td>
 <td>String</td>
 <td>user id of vendor ( Send it only if vendor is created by mr)</td>
@@ -1360,7 +1365,7 @@ Only admin can update the product otherwise you will get not authorized error</p
 <pre class="highlight json tab-json"><code><span class="w">
 </span><span class="err">HTTP</span><span class="w"> </span><span class="mi">200</span><span class="w"> </span><span class="err">OK</span><span class="w">
   </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
+    </span><span class="p">{</span><span class="w">
         </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
         </span><span class="s2">"user_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
         </span><span class="s2">"product_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
@@ -1378,6 +1383,8 @@ Only admin can update the product otherwise you will get not authorized error</p
         </span><span class="s2">"payment_description"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
         </span><span class="s2">"order_by_role"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mr"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"order_by_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"payment_mode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cod"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"payment_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
         </span><span class="s2">"product_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"nugennnd"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"user_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"varun1"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"order_by_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"aman"</span><span class="p">,</span><span class="w">
@@ -1419,6 +1426,8 @@ Only admin can update the product otherwise you will get not authorized error</p
     </span><span class="s2">"payment_description"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="s2">"order_by_role"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mr"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"order_by_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"payment_mode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cod"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"payment_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="s2">"product_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"nugennnd"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"user_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"varun1"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"order_by_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"aman"</span><span class="p">,</span><span class="w">
@@ -1515,6 +1524,8 @@ Order can only be confirmed by admin otherwise you will get not authorized error
       </span><span class="s2">"payment_description"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
       </span><span class="s2">"order_by_role"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mr"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"order_by_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"payment_mode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cod"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"payment_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
       </span><span class="s2">"product_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"nugennnd"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"user_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"varun1"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"order_by_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"aman"</span><span class="p">,</span><span class="w">
@@ -1581,6 +1592,11 @@ If successfull then send &quot;success&quot; else &quot;failed&quot;</p>
 <td>order_id</td>
 <td>String</td>
 <td>Id of Order</td>
+</tr>
+<tr>
+<td>payment_id</td>
+<td>String</td>
+<td>Id of Payment</td>
 </tr>
 <tr>
 <td>payment_status</td>
