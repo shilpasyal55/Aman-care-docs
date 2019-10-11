@@ -1184,3 +1184,127 @@ payment_description | String | if failed then send the description of the failur
  User must be authorized.Send user token in the header.
 </aside>
 
+# User Locations
+
+## Save last location
+
+> Success-Response:
+
+```json
+
+HTTP 200 OK
+{
+  "msg": 1
+}
+
+```
+
+> Error-Response:
+
+```json
+
+HTTP 422 OK
+{
+  "msg": 0,
+  "error": "Unable to update location"
+}
+
+```
+
+Save last location of current user
+
+### HTTP Request
+
+`POST https://amancover.herokuapp.com/v1/user_long_lats`
+
+### Query Parameters
+
+{
+  "long_lat": {"longitude": 1.90384, "latitute": 2.3490}
+}
+
+
+<aside class="success">
+ User must be authorized.Send user token in the header.
+</aside>
+
+## Fetch last location of current user
+
+> Success-Response:
+
+```json
+
+HTTP 200 OK
+{
+    "id": 3,
+    "user_id": 8,
+    "long_lat": {
+        "latitute": 2.349,
+        "longitude": 1.90384
+    },
+    "created_at": "2019-10-11T05:25:10.071Z",
+    "updated_at": "2019-10-11T05:25:10.071Z"
+}
+
+```
+
+
+Fetch last location of current user.
+``If no location found, then api will return
+{
+    "msg": 0
+}
+``
+
+### HTTP Request
+
+`GET https://amancover.herokuapp.com/v1/userLocation`
+
+### Query Parameters
+
+No Parameters
+
+<aside class="success">
+ User must be authorized.Send user token in the header.
+</aside>
+
+## Fetch last location of all users
+
+> Success-Response:
+
+```json
+
+HTTP 200 OK
+[
+    {
+        "id": 4,
+        "user_id": 8,
+        "long_lat": {
+            "latitude": 2.245,
+            "longitude": 1.24
+        },
+        "created_at": "2019-10-11T05:35:41.614Z",
+        "updated_at": "2019-10-11T05:35:53.231Z"
+    }
+]
+
+```
+
+Fetch last location of all users. Only Admin is allowed to fetch all locations
+
+
+### HTTP Request
+
+`GET https://amancover.herokuapp.com/v1/fetchAllUserLocations`
+
+### Query Parameters
+
+No Parameters
+
+<aside class="success">
+ User must be authorized.Send user token in the header.
+</aside>
+
+
+
+
