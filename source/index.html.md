@@ -879,7 +879,8 @@ No Parameters
 
 HTTP 200 OK
 {
-  "msg": 1
+  "msg": 1,
+  "order_id": 1
 }
 
 ```
@@ -1220,7 +1221,7 @@ Save last location of current user
 ### Query Parameters
 
 {
-  "long_lat": {"longitude": 1.90384, "latitute": 2.3490}
+  "long_lat": {"longitude": 1.90384, "latitude": 2.3490}
 }
 
 
