@@ -959,7 +959,8 @@ HTTP 200 OK
 
 ```
 
-Fetch all orders of all users
+Fetch all orders of all users.
+Payment status initialy => "not initialized"
 
 ### HTTP Request
 
