@@ -1166,7 +1166,17 @@ HTTP 422 OK
 
 ```
 
-Do Payment of the order. By Default the payment status is "not initialized".
+```json
+
+HTTP 402 OK
+{
+  "msg": 0,
+  "error": "Payment Failed"
+}
+
+```
+
+Do Payment of the order. By Default the payment status is "not_initialized".
 If successfull then send "success" else "failed"
 
 ### HTTP Request
@@ -1179,7 +1189,7 @@ Parameter | Type | Description
 --------- | ------- | -----------
 order_id | String | Id of Order
 payment_id | String | Id of Payment
-payment_status | String | By default "not initialized", otherwise send "success" and "failed"
+payment_status | String | By default "not_initialized", otherwise send "success" and "failed"
 payment_description | String | if failed then send the description of the failure
 
 <aside class="success">
