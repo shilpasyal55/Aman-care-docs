@@ -63,6 +63,7 @@ password | String | Password of user
 gst | String | Gst (only for vendor)
 address | String | Address of user
 qualification | String | Qualification of user(only for mr)
+photo | String | Photo
 role | String | Value must be => admin,vendor,supplier or mr
 
 
@@ -1316,6 +1317,133 @@ No Parameters
 <aside class="success">
  User must be authorized.Send user token in the header.
 </aside>
+
+
+# Coupons
+
+## Save Coupon
+
+> Success-Response:
+
+```json
+
+HTTP 200 OK
+{
+  "msg": 1
+}
+
+```
+
+> Error-Response:
+
+```json
+
+HTTP 422 OK
+{
+  "msg": 0,
+  "error": "Coupon name can't be blank"
+}
+
+```
+
+Save new Coupon.
+Only admin can save the coupon otherwise you will get the not authorized error
+
+### HTTP Request
+
+`POST https://amancover.herokuapp.com/v1/coupons`
+
+### Query Parameters
+
+Parameter | Type | Description
+--------- | ------- | -----------
+coupon_name | String | Name of coupon
+expiry_datetime | String | expiry of coupon
+minimum_discount_pieces | String | minimum number of pieces on which disount will be given
+pieces_free_count | String | free pieces
+
+<aside class="success">
+ User must be authorized.Send user token in the header.
+</aside>
+
+
+## Check Coupon valid
+
+> Success-Response:
+
+```json
+
+HTTP 200 OK
+{
+  "msg": "Coupon valid"
+}
+
+```
+
+> Error-Response:
+
+```json
+
+HTTP 422 OK
+{
+  "msg": 0,
+  "error": "Coupon doesnot exist"
+}
+
+```
+
+Check if coupon is valid or not
+
+### HTTP Request
+
+`POST https://amancover.herokuapp.com/v1/checkCoupon`
+
+### Query Parameters
+
+Parameter | Type | Description
+--------- | ------- | -----------
+name | String | Name of coupon
+
+<aside class="success">
+ User must be authorized.Send user token in the header.
+</aside>
+
+## Fetch all coupons
+
+> Success-Response:
+
+```json
+
+HTTP 200 OK
+[
+    {
+        "id": 2,
+        "coupon_name": "jjhj",
+        "expiry_datetime": " Wed, 22 Oct 2019\n",
+        "minimum_discount_pieces": "5",
+        "pieces_free_count": "2",
+        "expired": null,
+        "created_at": "2019-10-23T15:26:39.856Z",
+        "updated_at": "2019-10-23T15:26:39.856Z"
+    }
+]
+```
+
+
+Fetch all coupons. Will return empty array if no coupons are available
+
+### HTTP Request
+
+`GET https://amancover.herokuapp.com/v1/coupons`
+
+### Query Parameters
+
+no parameters
+
+<aside class="success">
+ User must be authorized.Send user token in the header.
+</aside>
+
 
 
 
