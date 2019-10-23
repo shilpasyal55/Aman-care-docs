@@ -918,6 +918,7 @@ address | String | Address
 mobile | String | Mobile
 payment_mode | String | ed cod, online
 user_id | String | user id of vendor ( Send it only if vendor is created by mr)
+coupon_id | String | coupon id 
 
 <aside class="success">
  User must be authorized.Send user token in the header.
@@ -1188,7 +1189,7 @@ If successfull then send "success" else "failed"
 
 Parameter | Type | Description
 --------- | ------- | -----------
-order_id | String | Id of Order
+order_id | String | Id of Razor pay Order
 payment_id | String | Id of Payment
 payment_status | String | By default "not_initialized", otherwise send "success" and "failed"
 payment_description | String | if failed then send the description of the failure
@@ -1375,7 +1376,8 @@ pieces_free_count | String | free pieces
 
 HTTP 200 OK
 {
-  "msg": "Coupon valid"
+  "msg": "Coupon valid",
+  "coupon_id": 1
 }
 
 ```
