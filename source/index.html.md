@@ -932,30 +932,36 @@ coupon_id | String | coupon id
 
 HTTP 200 OK
   [
-    {
-        "id": 3,
-        "user_id": 3,
+     {
+        "id": 10,
+        "user_id": 2,
         "product_id": 1,
-        "material": "cotton",
+        "material": "fabric",
         "quantity": "2",
-        "price": "10",
-        "brand_logo": "/uploads/76bf21e4ee7c401b_100_Gift_Voucher.png",
-        "firm_name": "jhjh",
-        "address": "dkjf",
-        "mobile": "78787878",
-        "created_at": "2019-09-30T07:52:42.492Z",
-        "updated_at": "2019-09-30T07:52:42.492Z",
+        "price": "200",
+        "brand_logo": "/uploads/08153cbff9a19eb01e206cc5b961b6c5472f3918f1159f4f.png",
+        "firm_name": "services",
+        "address": "jalandharr",
+        "mobile": "9872148421",
+        "created_at": "2019-10-23T15:47:42.937Z",
+        "updated_at": "2019-10-23T16:01:45.262Z",
         "confirmed": false,
-        "payment_status": null,
-        "payment_description": null,
-        "order_by_role": "mr",
+        "payment_status": "success",
+        "payment_description": "test",
+        "order_by_role": "vendor",
         "order_by_id": 2,
-        "payment_mode": "cod",
-        "payment_id": null,
-        "product_name": "nugennnd",
-        "user_name": "varun1",
-        "order_by_name": "aman",
-        "order_by_mobile": "7894561230"
+        "payment_id": "12",
+        "payment_mode": "online",
+        "razorpayorder_id": "order_DXZBZyU8IsyJcG",
+        "gst": null,
+        "coupon_id": 1,
+        "product_name": "yuyuyu",
+        "user_name": "Chilka Syal",
+        "order_by_name": "Chilka Syal",
+        "order_by_mobile": "7986075186",
+        "coupon_name": "test",
+        "minimum_discount_pieces": "2",
+        "pieces_free_count": "3"
     }
   ]
 
@@ -983,31 +989,37 @@ No parameters
 ```json
 
 HTTP 200 OK
-{
-    "id": 3,
-    "user_id": 3,
-    "product_id": 1,
-    "material": "cotton",
-    "quantity": "2",
-    "price": "10",
-    "brand_logo": "/uploads/76bf21e4ee7c401b_100_Gift_Voucher.png",
-    "firm_name": "jhjh",
-    "address": "dkjf",
-    "mobile": "78787878",
-    "created_at": "2019-09-30T07:52:42.492Z",
-    "updated_at": "2019-09-30T07:52:42.492Z",
-    "confirmed": false,
-    "payment_status": null,
-    "payment_description": null,
-    "order_by_role": "mr",
-    "order_by_id": 2,
-    "payment_mode": "cod",
-    "payment_id": null,
-    "product_name": "nugennnd",
-    "user_name": "varun1",
-    "order_by_name": "aman",
-    "order_by_mobile": "7894561230"
-}
+ {
+        "id": 10,
+        "user_id": 2,
+        "product_id": 1,
+        "material": "fabric",
+        "quantity": "2",
+        "price": "200",
+        "brand_logo": "/uploads/08153cbff9a19eb01e206cc5b961b6c5472f3918f1159f4f.png",
+        "firm_name": "services",
+        "address": "jalandharr",
+        "mobile": "9872148421",
+        "created_at": "2019-10-23T15:47:42.937Z",
+        "updated_at": "2019-10-23T16:01:45.262Z",
+        "confirmed": false,
+        "payment_status": "success",
+        "payment_description": "test",
+        "order_by_role": "vendor",
+        "order_by_id": 2,
+        "payment_id": "12",
+        "payment_mode": "online",
+        "razorpayorder_id": "order_DXZBZyU8IsyJcG",
+        "gst": null,
+        "coupon_id": 1,
+        "product_name": "yuyuyu",
+        "user_name": "Chilka Syal",
+        "order_by_name": "Chilka Syal",
+        "order_by_mobile": "7986075186",
+        "coupon_name": "test",
+        "minimum_discount_pieces": "3",
+        "pieces_free_count": "2"
+    }
 
 ```
 
