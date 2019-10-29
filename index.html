@@ -348,6 +348,17 @@
                   </li>
               </ul>
           </li>
+          <li>
+            <a href="#incentive-message-panel" class="toc-h1 toc-link" data-title="Incentive Message Panel">Incentive Message Panel</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#save-message" class="toc-h2 toc-link" data-title="Save Message">Save Message</a>
+                  </li>
+                  <li>
+                    <a href="#fetch-message" class="toc-h2 toc-link" data-title="Fetch Message">Fetch Message</a>
+                  </li>
+              </ul>
+          </li>
       </ul>
         <ul class="toc-footer">
             <li><a href='http://nugeninfo.com'>AmanCare Cover API Docs</a></li>
@@ -1893,6 +1904,73 @@ Only admin can save the coupon otherwise you will get the not authorized error</
 <p><code>GET https://amancover.herokuapp.com/v1/coupons</code></p>
 <h3 id='query-parameters-30'>Query Parameters</h3>
 <p>no parameters</p>
+
+<aside class="success">
+ User must be authorized.Send user token in the header.
+</aside>
+<h1 id='incentive-message-panel'>Incentive Message Panel</h1><h2 id='save-message'>Save Message</h2>
+<blockquote>
+<p>Success-Response:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">
+</span><span class="err">HTTP</span><span class="w"> </span><span class="mi">200</span><span class="w"> </span><span class="err">OK</span><span class="w">
+</span><span class="p">{</span><span class="w">
+  </span><span class="s2">"msg"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<blockquote>
+<p>Error-Response:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">
+</span><span class="err">HTTP</span><span class="w"> </span><span class="mi">422</span><span class="w"> </span><span class="err">OK</span><span class="w">
+</span><span class="p">{</span><span class="w">
+  </span><span class="s2">"msg"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Message can't be blank"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<p>Save new Incentive Message.
+Only admin can save the incentive message otherwise you will get the not authorized error</p>
+<h3 id='http-request-33'>HTTP Request</h3>
+<p><code>POST https://amancover.herokuapp.com/v1/incentives</code></p>
+<h3 id='query-parameters-31'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>message</td>
+<td>String</td>
+<td>Incentive Message</td>
+</tr>
+</tbody></table>
+
+<aside class="success">
+ User must be authorized.Send user token in the header.
+</aside>
+<h2 id='fetch-message'>Fetch Message</h2>
+<blockquote>
+<p>Success-Response:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">
+</span><span class="err">HTTP</span><span class="w"> </span><span class="mi">200</span><span class="w"> </span><span class="err">OK</span><span class="w">
+</span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-10-29T05:01:27.422Z"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-10-29T05:01:27.422Z"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<p>Fetch Incentive Message.</p>
+<h3 id='http-request-34'>HTTP Request</h3>
+<p><code>GET https://amancover.herokuapp.com/v1/incentives</code></p>
+<h3 id='query-parameters-32'>Query Parameters</h3>
+<p>No parameters</p>
 
 <aside class="success">
  User must be authorized.Send user token in the header.
