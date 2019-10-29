@@ -1459,6 +1459,84 @@ no parameters
 </aside>
 
 
+# Incentive Message Panel
+
+## Save Message
+
+> Success-Response:
+
+```json
+
+HTTP 200 OK
+{
+  "msg": 1
+}
+
+```
+
+> Error-Response:
+
+```json
+
+HTTP 422 OK
+{
+  "msg": 0,
+  "error": "Message can't be blank"
+}
+
+```
+
+Save new Incentive Message.
+Only admin can save the incentive message otherwise you will get the not authorized error
+
+### HTTP Request
+
+`POST https://amancover.herokuapp.com/v1/incentives`
+
+### Query Parameters
+
+Parameter | Type | Description
+--------- | ------- | -----------
+message | String | Incentive Message
+
+<aside class="success">
+ User must be authorized.Send user token in the header.
+</aside>
+
+## Fetch Message
+
+> Success-Response:
+
+```json
+
+HTTP 200 OK
+{
+    "id": 3,
+    "message": "test",
+    "created_at": "2019-10-29T05:01:27.422Z",
+    "updated_at": "2019-10-29T05:01:27.422Z"
+}
+
+```
+
+Fetch Incentive Message.
+
+### HTTP Request
+
+`GET https://amancover.herokuapp.com/v1/incentives`
+
+### Query Parameters
+
+No parameters
+
+<aside class="success">
+ User must be authorized.Send user token in the header.
+</aside>
+
+
+
+
+
 
 
 
