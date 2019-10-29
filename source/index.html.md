@@ -7,7 +7,6 @@ language_tabs: # must be one of https://git.io/vQNgJ
 toc_footers:
   - <a href='http://nugeninfo.com'>AmanCare Cover API Docs</a>
 
-
 search: true
 ---
 
@@ -27,7 +26,8 @@ AmanCare Cover Api Docs
 HTTP 200 OK
 {
   "msg": 1,
-  "token": "7dhf8hfjhdjf8rrhjdjfhdf844"
+  "token": "7dhf8hfjhdjf8rrhjdjfhdf844",
+  "device_registered": true
 }
 
 ```
@@ -65,6 +65,9 @@ address | String | Address of user
 qualification | String | Qualification of user(only for mr)
 photo | String | Photo
 role | String | Value must be => admin,vendor,supplier or mr
+token | String | Token
+platform | String | platform
+uuid | String | uuid
 
 
 ## Login - Authentication
@@ -78,7 +81,8 @@ HTTP 200 OK
   "token": "7dhf8hfjhdjf8rrhjdjfhdf844",
   "msg": 1,
   "verified": true,
-  "role": "vendor"
+  "role": "vendor",
+  "device_registered": true
 }
 
 ```
@@ -107,6 +111,10 @@ Parameter | Type | Description
 --------- | ------- | -----------
 mobile | String | Mobile number/ Email of user
 password | String | Password of user
+token | String | Token
+platform | String | platform
+uuid | String | uuid
+
 
 
 ## Verify Account
