@@ -1397,7 +1397,16 @@ pieces_free_count | String | free pieces
 HTTP 200 OK
 {
   "msg": "Coupon valid",
-  "coupon_id": 1
+  "coupon":  {
+        "id": 2,
+        "coupon_name": "jjhj",
+        "expiry_datetime": " Wed, 22 Oct 2019\n",
+        "minimum_discount_pieces": "5",
+        "pieces_free_count": "2",
+        "expired": null,
+        "created_at": "2019-10-23T15:26:39.856Z",
+        "updated_at": "2019-10-23T15:26:39.856Z"
+    }
 }
 
 ```
