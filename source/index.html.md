@@ -210,6 +210,7 @@ HTTP 200 OK
   "gst": "data",
   "address": "data",
   "role": "data",
+  "vendor_category": "data",
   "verified": "data",
   "qualification": "data",
   "is_active": true,
@@ -1404,6 +1405,7 @@ HTTP 200 OK
         "expiry_datetime": " Wed, 22 Oct 2019\n",
         "minimum_discount_pieces": "5",
         "pieces_free_count": "2",
+        "category": "dhf",
         "expired": null,
         "created_at": "2019-10-23T15:26:39.856Z",
         "updated_at": "2019-10-23T15:26:39.856Z"
@@ -1454,6 +1456,7 @@ HTTP 200 OK
         "expiry_datetime": " Wed, 22 Oct 2019\n",
         "minimum_discount_pieces": "5",
         "pieces_free_count": "2",
+        "category": "djf",
         "expired": null,
         "created_at": "2019-10-23T15:26:39.856Z",
         "updated_at": "2019-10-23T15:26:39.856Z"
