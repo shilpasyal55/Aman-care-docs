@@ -45,7 +45,7 @@ HTTP 422 Unprocessable entity
 
 This endpoint will save a new user.
 For Supplier => Name,Address,Mobile,Email,Role,Password
-For Vendor => Name,Address,Mobile,Email,GST,Role,Password
+For Vendor => Name,Address,Mobile,Email,GST,Role,Password,Vendor Category
 For MR => Name,Address,Mobile,Email,Qualification,Role,Password
 
 ### HTTP Request
@@ -65,6 +65,7 @@ address | String | Address of user
 qualification | String | Qualification of user(only for mr)
 photo | String | Photo
 role | String | Value must be => admin,vendor,supplier or mr
+vendor_category | String | Value must be => 'electronics showroom', 'spare parts', 'service centre'
 token | String | Token
 platform | String | platform
 uuid | String | uuid
@@ -712,8 +713,8 @@ quantity | String | Quantity of Product
 category_id | String | Category
 size | String | size of product
 color | String | color of product
-price | String | price of product
 image | String | image of product
+material | Array of object | [{name: 'dh',price: 20}]
 
 
 <aside class="success">
@@ -762,10 +763,11 @@ quantity | String | Quantity of Product
 category_id | String | Category
 size | String | size of product
 color | String | color of product
-price | String | price of product
 image | String | image of product
 image_updated | String | send true or false if image is updated
 id | String | id of product
+material | Array of object | [{name: 'dh',price: 20}]
+
 
 <aside class="success">
  User must be authorized.Send user token in the header.
@@ -786,7 +788,7 @@ HTTP 200 OK
       "size": "uy",
       "quantity": "7",
       "color": "red",
-      "price": "89",
+      "material": [{"name": "df","price": 23}],
       "image": null,
       "created_at": "2019-09-21T06:17:51.157Z",
       "updated_at": "2019-09-21T06:17:51.157Z",
@@ -838,7 +840,7 @@ HTTP 200 OK
         "size": "uy",
         "quantity": "7",
         "color": "red",
-        "price": "89",
+        "material": [{"name": "df","price": 23}],
         "image": null,
         "created_at": "2019-09-21T06:17:51.157Z",
         "updated_at": "2019-09-21T06:17:51.157Z",
@@ -853,7 +855,7 @@ HTTP 200 OK
         "size": " uy",
         "quantity": " 7",
         "color": " reddfdf",
-        "price": " 89",
+         "material": [{"name": "df","price": 23}],
         "image": "/uploads/3cfbd092d5cf1e63Logo__1_.png",
         "created_at": "2019-09-21T06:22:32.113Z",
         "updated_at": "2019-09-21T06:22:32.113Z",
@@ -919,7 +921,6 @@ Parameter | Type | Description
 product_id | String | Id of Product
 material | String | material of Product
 quantity | String | quantity of the product
-price | String | price
 brand_logo | String | Photo of brand logo
 firm_name | String | Firm name
 address | String | Address
@@ -946,7 +947,6 @@ HTTP 200 OK
         "product_id": 1,
         "material": "fabric",
         "quantity": "2",
-        "price": "200",
         "brand_logo": "/uploads/08153cbff9a19eb01e206cc5b961b6c5472f3918f1159f4f.png",
         "firm_name": "services",
         "address": "jalandharr",
@@ -1382,6 +1382,7 @@ coupon_name | String | Name of coupon
 expiry_datetime | String | expiry of coupon
 minimum_discount_pieces | String | minimum number of pieces on which disount will be given
 pieces_free_count | String | free pieces
+category | String | category of coupon
 
 <aside class="success">
  User must be authorized.Send user token in the header.
