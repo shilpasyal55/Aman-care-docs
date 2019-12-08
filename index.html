@@ -394,7 +394,7 @@
 </span></code></pre>
 <p>This endpoint will save a new user.
 For Supplier =&gt; Name,Address,Mobile,Email,Role,Password
-For Vendor =&gt; Name,Address,Mobile,Email,GST,Role,Password
+For Vendor =&gt; Name,Address,Mobile,Email,GST,Role,Password,Vendor Category
 For MR =&gt; Name,Address,Mobile,Email,Qualification,Role,Password</p>
 <h3 id='http-request'>HTTP Request</h3>
 <p><code>POST https://amancover.herokuapp.com/v1/users</code></p>
@@ -450,6 +450,11 @@ For MR =&gt; Name,Address,Mobile,Email,Qualification,Role,Password</p>
 <td>role</td>
 <td>String</td>
 <td>Value must be =&gt; admin,vendor,supplier or mr</td>
+</tr>
+<tr>
+<td>vendor_category</td>
+<td>String</td>
+<td>Value must be =&gt; &#39;electronics showroom&#39;, &#39;spare parts&#39;, &#39;service centre&#39;</td>
 </tr>
 <tr>
 <td>token</td>
@@ -615,6 +620,7 @@ User can login with both email and mobile number</p>
   </span><span class="s2">"gst"</span><span class="p">:</span><span class="w"> </span><span class="s2">"data"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"data"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"role"</span><span class="p">:</span><span class="w"> </span><span class="s2">"data"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"vendor_category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"data"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"verified"</span><span class="p">:</span><span class="w"> </span><span class="s2">"data"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"qualification"</span><span class="p">:</span><span class="w"> </span><span class="s2">"data"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"is_active"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
@@ -1156,14 +1162,14 @@ Only admin can save the products otherwise you will get the not authorized error
 <td>color of product</td>
 </tr>
 <tr>
-<td>price</td>
-<td>String</td>
-<td>price of product</td>
-</tr>
-<tr>
 <td>image</td>
 <td>String</td>
 <td>image of product</td>
+</tr>
+<tr>
+<td>material</td>
+<td>Array of object</td>
+<td>[{name: &#39;dh&#39;,price: 20}]</td>
 </tr>
 </tbody></table>
 
@@ -1230,11 +1236,6 @@ Only admin can update the product otherwise you will get not authorized error</p
 <td>color of product</td>
 </tr>
 <tr>
-<td>price</td>
-<td>String</td>
-<td>price of product</td>
-</tr>
-<tr>
 <td>image</td>
 <td>String</td>
 <td>image of product</td>
@@ -1248,6 +1249,11 @@ Only admin can update the product otherwise you will get not authorized error</p
 <td>id</td>
 <td>String</td>
 <td>id of product</td>
+</tr>
+<tr>
+<td>material</td>
+<td>Array of object</td>
+<td>[{name: &#39;dh&#39;,price: 20}]</td>
 </tr>
 </tbody></table>
 
@@ -1268,7 +1274,7 @@ Only admin can update the product otherwise you will get not authorized error</p
       </span><span class="s2">"size"</span><span class="p">:</span><span class="w"> </span><span class="s2">"uy"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"red"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"89"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"material"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"df"</span><span class="p">,</span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="mi">23</span><span class="p">}],</span><span class="w">
       </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
       </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-09-21T06:17:51.157Z"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-09-21T06:17:51.157Z"</span><span class="p">,</span><span class="w">
@@ -1312,7 +1318,7 @@ Only admin can update the product otherwise you will get not authorized error</p
         </span><span class="s2">"size"</span><span class="p">:</span><span class="w"> </span><span class="s2">"uy"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"7"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"red"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"89"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"material"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"df"</span><span class="p">,</span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="mi">23</span><span class="p">}],</span><span class="w">
         </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
         </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-09-21T06:17:51.157Z"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-09-21T06:17:51.157Z"</span><span class="p">,</span><span class="w">
@@ -1327,7 +1333,7 @@ Only admin can update the product otherwise you will get not authorized error</p
         </span><span class="s2">"size"</span><span class="p">:</span><span class="w"> </span><span class="s2">" uy"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="s2">" 7"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"color"</span><span class="p">:</span><span class="w"> </span><span class="s2">" reddfdf"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">" 89"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"material"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"df"</span><span class="p">,</span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="mi">23</span><span class="p">}],</span><span class="w">
         </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/uploads/3cfbd092d5cf1e63Logo__1_.png"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-09-21T06:22:32.113Z"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-09-21T06:22:32.113Z"</span><span class="p">,</span><span class="w">
@@ -1396,11 +1402,6 @@ Only admin can update the product otherwise you will get not authorized error</p
 <td>quantity of the product</td>
 </tr>
 <tr>
-<td>price</td>
-<td>String</td>
-<td>price</td>
-</tr>
-<tr>
 <td>brand_logo</td>
 <td>String</td>
 <td>Photo of brand logo</td>
@@ -1453,7 +1454,6 @@ Only admin can update the product otherwise you will get not authorized error</p
         </span><span class="s2">"product_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
         </span><span class="s2">"material"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fabric"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="s2">"200"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"brand_logo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/uploads/08153cbff9a19eb01e206cc5b961b6c5472f3918f1159f4f.png"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"firm_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"services"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jalandharr"</span><span class="p">,</span><span class="w">
@@ -1863,6 +1863,11 @@ Only admin can save the coupon otherwise you will get the not authorized error</
 <td>String</td>
 <td>free pieces</td>
 </tr>
+<tr>
+<td>category</td>
+<td>String</td>
+<td>category of coupon</td>
+</tr>
 </tbody></table>
 
 <aside class="success">
@@ -1882,6 +1887,7 @@ Only admin can save the coupon otherwise you will get the not authorized error</
         </span><span class="s2">"expiry_datetime"</span><span class="p">:</span><span class="w"> </span><span class="s2">" Wed, 22 Oct 2019</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"minimum_discount_pieces"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"pieces_free_count"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dhf"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"expired"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
         </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-10-23T15:26:39.856Z"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-10-23T15:26:39.856Z"</span><span class="w">
@@ -1934,6 +1940,7 @@ Only admin can save the coupon otherwise you will get the not authorized error</
         </span><span class="s2">"expiry_datetime"</span><span class="p">:</span><span class="w"> </span><span class="s2">" Wed, 22 Oct 2019</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"minimum_discount_pieces"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"pieces_free_count"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"djf"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"expired"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
         </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-10-23T15:26:39.856Z"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-10-23T15:26:39.856Z"</span><span class="w">
