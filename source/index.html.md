@@ -919,16 +919,31 @@ Save new Order
 
 Parameter | Type | Description
 --------- | ------- | -----------
-product_id | String | Id of Product
-material | String | material of Product
-quantity | String | quantity of the product
-brand_logo | String | Photo of brand logo
-firm_name | String | Firm name
 address | String | Address
 mobile | String | Mobile
 payment_mode | String | ed cod, online
 user_id | String | user id of vendor ( Send it only if vendor is created by mr)
 coupon_id | String | coupon id 
+
+
+`{
+  "gst": "10",
+  "address": "jalandhar",
+  "mobile": "2763736323",
+  "payment_mode": "cash",
+  "coupon_id": "1",
+  "products": [   
+    {
+      "name":"Test Product 3",
+      "quantity":"6",
+      "category_id":1,
+      "size":"45",
+      "color": "red",
+      "material": {"name": "Synthetic", "price": 100 },
+      "product_id": 3
+    }
+  ]
+}`
 
 <aside class="success">
  User must be authorized.Send user token in the header.
@@ -1549,6 +1564,77 @@ Fetch Incentive Message.
 ### Query Parameters
 
 No parameters
+
+<aside class="success">
+ User must be authorized.Send user token in the header.
+</aside>
+
+# FeedBack
+
+## Add Feedback
+
+> Success-Response:
+
+```json
+
+HTTP 200 OK
+{
+    "msg": 1
+}
+
+```
+
+Save Feedback.
+
+### HTTP Request
+
+`POST https://amancover.herokuapp.com/v1/feedbacks`
+
+### Query Parameters
+
+Parameter | Type 
+--------- | ------- 
+party_name | String 
+name | String 
+address | String 
+city | String 
+interested | Boolean 
+
+<!-- <aside class="success">
+ User must be authorized.Send user token in the header.
+</aside> -->
+
+## Admin Fetch all Feedbacks
+
+> Success-Response:
+
+```json
+
+HTTP 200 OK
+[
+    {
+        "id": 1,
+        "party_name": "test",
+        "name": "test1",
+        "address": "test2",
+        "city": "test3",
+        "interested": true,
+        "created_at": "2019-12-16T06:13:53.117Z",
+        "updated_at": "2019-12-16T06:13:53.117Z"
+    }
+]
+
+```
+
+Fetch Feedback.Only Admin is allowed to fetch all feedbacks
+
+### HTTP Request
+
+`GET https://amancover.herokuapp.com/v1/feedbacks`
+
+### Query Parameters
+
+No Params
 
 <aside class="success">
  User must be authorized.Send user token in the header.
