@@ -1599,10 +1599,11 @@ name | String
 address | String 
 city | String 
 interested | Boolean 
+description | text 
 
-<!-- <aside class="success">
+<aside class="success">
  User must be authorized.Send user token in the header.
-</aside> -->
+</aside>
 
 ## Admin Fetch all Feedbacks
 
@@ -1614,13 +1615,18 @@ HTTP 200 OK
 [
     {
         "id": 1,
-        "party_name": "test",
-        "name": "test1",
-        "address": "test2",
-        "city": "test3",
+        "party_name": "djfh",
+        "name": "djhfjdfhj",
+        "address": "djfd",
+        "city": "jhj",
         "interested": true,
-        "created_at": "2019-12-16T06:13:53.117Z",
-        "updated_at": "2019-12-16T06:13:53.117Z"
+        "created_at": "2019-12-18T07:40:56.924Z",
+        "updated_at": "2019-12-18T07:40:56.924Z",
+        "description": "djfhj",
+        "user_id": 1,
+        "mobile": "0000000000",
+        "email": "admin@gmail.com",
+        "role": "admin"
     }
 ]
 
