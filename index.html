@@ -1398,16 +1398,6 @@ Only admin can update the product otherwise you will get not authorized error</p
 </tr>
 </thead><tbody>
 <tr>
-<td>address</td>
-<td>String</td>
-<td>Address</td>
-</tr>
-<tr>
-<td>mobile</td>
-<td>String</td>
-<td>Mobile</td>
-</tr>
-<tr>
 <td>payment_mode</td>
 <td>String</td>
 <td>ed cod, online</td>
@@ -1417,19 +1407,10 @@ Only admin can update the product otherwise you will get not authorized error</p
 <td>String</td>
 <td>user id of vendor ( Send it only if vendor is created by mr)</td>
 </tr>
-<tr>
-<td>coupon_id</td>
-<td>String</td>
-<td>coupon id</td>
-</tr>
 </tbody></table>
 
 <p><code>{
-  &quot;gst&quot;: &quot;10&quot;,
-  &quot;address&quot;: &quot;jalandhar&quot;,
-  &quot;mobile&quot;: &quot;2763736323&quot;,
   &quot;payment_mode&quot;: &quot;cash&quot;,
-  &quot;coupon_id&quot;: &quot;1&quot;,
   &quot;products&quot;: [   
     {
       &quot;name&quot;:&quot;Test Product 3&quot;,
@@ -1438,7 +1419,12 @@ Only admin can update the product otherwise you will get not authorized error</p
       &quot;size&quot;:&quot;45&quot;,
       &quot;color&quot;: &quot;red&quot;,
       &quot;material&quot;: {&quot;name&quot;: &quot;Synthetic&quot;, &quot;price&quot;: 100 },
-      &quot;product_id&quot;: 3
+      &quot;product_id&quot;: 3,
+      &quot;brand_logo&quot;: &quot;file /object&quot;
+      &quot;coupon_id&quot;: &quot;1&quot;,
+      &quot;gst&quot;: &quot;10&quot;,
+      &quot;address&quot;: &quot;jalandhar&quot;,
+      &quot;mobile&quot;: &quot;2763736323&quot;,
     }
   ]
 }</code></p>
