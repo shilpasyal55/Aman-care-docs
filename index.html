@@ -1413,27 +1413,31 @@ Only admin can update the product otherwise you will get not authorized error</p
 <td>user id of vendor ( Send it only if vendor is created by mr)</td>
 </tr>
 </tbody></table>
-<pre class="highlight sh tab-shell"><code><span class="o">{</span>
-  <span class="s2">"payment_mode"</span>: <span class="s2">"cash"</span>,
-  <span class="s2">"gst"</span>: <span class="s2">"27"</span>,
-  <span class="s2">"total"</span>: 1200,
-  <span class="s2">"products"</span>: <span class="o">[</span>   
-    <span class="o">{</span>
-      <span class="s2">"name"</span>:<span class="s2">"Test Product 3"</span>,
-      <span class="s2">"quantity"</span>:<span class="s2">"6"</span>,
-      <span class="s2">"category_id"</span>:1,
-      <span class="s2">"size"</span>:<span class="s2">"45"</span>,
-      <span class="s2">"color"</span>: <span class="s2">"red"</span>,
-      <span class="s2">"material"</span>: <span class="o">{</span><span class="s2">"name"</span>: <span class="s2">"Synthetic"</span>, <span class="s2">"price"</span>: 100 <span class="o">}</span>,
-      <span class="s2">"product_id"</span>: 3,
-      <span class="s2">"brand_logo"</span>: <span class="s2">"file /object"</span>
-      <span class="s2">"coupon_id"</span>: <span class="s2">"1"</span>,
-      <span class="s2">"address"</span>: <span class="s2">"jalandhar"</span>,
-      <span class="s2">"mobile"</span>: <span class="s2">"2763736323"</span>,
-    <span class="o">}</span>
-  <span class="o">]</span>
-<span class="o">}</span>
-</code></pre>
+
+<blockquote>
+<p>Example Object</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"payment_mode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cash"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"gst"</span><span class="p">:</span><span class="w"> </span><span class="s2">"27"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"total"</span><span class="p">:</span><span class="w"> </span><span class="mi">1200</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"products"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">   
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="s2">"Test Product 3"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"quantity"</span><span class="p">:</span><span class="s2">"6"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"category_id"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"size"</span><span class="p">:</span><span class="s2">"45"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"red"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"material"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Synthetic"</span><span class="p">,</span><span class="w"> </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="w"> </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"product_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"brand_logo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"file /object"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"coupon_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"address"</span><span class="p">:</span><span class="w"> </span><span class="s2">"jalandhar"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2763736323"</span><span class="p">,</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 <aside class="success">
  User must be authorized.Send user token in the header.
 </aside>
