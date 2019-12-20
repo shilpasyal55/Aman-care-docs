@@ -924,7 +924,9 @@ gst | String | GST (optional)
 user_id | String | user id of vendor ( Send it only if vendor is created by mr) 
 
 
-```sh
+> Example Object
+
+```json
 {
   "payment_mode": "cash",
   "gst": "27",
@@ -938,7 +940,7 @@ user_id | String | user id of vendor ( Send it only if vendor is created by mr)
       "color": "red",
       "material": {"name": "Synthetic", "price": 100 },
       "product_id": 3,
-      "brand_logo": "file /object"
+      "brand_logo": "file /object",
       "coupon_id": "1",
       "address": "jalandhar",
       "mobile": "2763736323",
