@@ -1413,8 +1413,6 @@ Only admin can update the product otherwise you will get not authorized error</p
 <td>user id of vendor ( Send it only if vendor is created by mr)</td>
 </tr>
 </tbody></table>
-
-<p>params.permit(:user_id,:payment_mode,:gst,:total,products: [:product_id,:quantity,:brand_logo,:firm_name,:name,:size,:color,:address,:mobile,:coupon_id,material: [:name,:price]])</p>
 <pre class="highlight sh tab-shell"><code><span class="o">{</span>
   <span class="s2">"payment_mode"</span>: <span class="s2">"cash"</span>,
   <span class="s2">"gst"</span>: <span class="s2">"27"</span>,
