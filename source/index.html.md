@@ -920,11 +920,16 @@ Save new Order
 Parameter | Type | Description
 --------- | ------- | -----------
 payment_mode | String | ed cod, online
+gst | String | GST (optional)
 user_id | String | user id of vendor ( Send it only if vendor is created by mr) 
 
+params.permit(:user_id,:payment_mode,:gst,:total,products: [:product_id,:quantity,:brand_logo,:firm_name,:name,:size,:color,:address,:mobile,:coupon_id,material: [:name,:price]])
 
-`{
+```sh
+{
   "payment_mode": "cash",
+  "gst": "27",
+  "total": 1200,
   "products": [   
     {
       "name":"Test Product 3",
@@ -936,12 +941,12 @@ user_id | String | user id of vendor ( Send it only if vendor is created by mr)
       "product_id": 3,
       "brand_logo": "file /object"
       "coupon_id": "1",
-      "gst": "10",
       "address": "jalandhar",
       "mobile": "2763736323",
     }
   ]
-}`
+}
+```
 
 <aside class="success">
  User must be authorized.Send user token in the header.
