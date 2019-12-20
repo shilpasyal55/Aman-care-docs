@@ -919,19 +919,12 @@ Save new Order
 
 Parameter | Type | Description
 --------- | ------- | -----------
-address | String | Address
-mobile | String | Mobile
 payment_mode | String | ed cod, online
-user_id | String | user id of vendor ( Send it only if vendor is created by mr)
-coupon_id | String | coupon id 
+user_id | String | user id of vendor ( Send it only if vendor is created by mr) 
 
 
 `{
-  "gst": "10",
-  "address": "jalandhar",
-  "mobile": "2763736323",
   "payment_mode": "cash",
-  "coupon_id": "1",
   "products": [   
     {
       "name":"Test Product 3",
@@ -940,7 +933,12 @@ coupon_id | String | coupon id
       "size":"45",
       "color": "red",
       "material": {"name": "Synthetic", "price": 100 },
-      "product_id": 3
+      "product_id": 3,
+      "brand_logo": "file /object"
+      "coupon_id": "1",
+      "gst": "10",
+      "address": "jalandhar",
+      "mobile": "2763736323",
     }
   ]
 }`
