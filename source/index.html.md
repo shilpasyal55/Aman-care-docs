@@ -923,7 +923,6 @@ payment_mode | String | ed cod, online
 gst | String | GST (optional)
 user_id | String | user id of vendor ( Send it only if vendor is created by mr) 
 
-params.permit(:user_id,:payment_mode,:gst,:total,products: [:product_id,:quantity,:brand_logo,:firm_name,:name,:size,:color,:address,:mobile,:coupon_id,material: [:name,:price]])
 
 ```sh
 {
