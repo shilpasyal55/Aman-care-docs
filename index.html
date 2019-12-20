@@ -1403,32 +1403,39 @@ Only admin can update the product otherwise you will get not authorized error</p
 <td>ed cod, online</td>
 </tr>
 <tr>
+<td>gst</td>
+<td>String</td>
+<td>GST (optional)</td>
+</tr>
+<tr>
 <td>user_id</td>
 <td>String</td>
 <td>user id of vendor ( Send it only if vendor is created by mr)</td>
 </tr>
 </tbody></table>
 
-<p><code>{
-  &quot;payment_mode&quot;: &quot;cash&quot;,
-  &quot;products&quot;: [   
-    {
-      &quot;name&quot;:&quot;Test Product 3&quot;,
-      &quot;quantity&quot;:&quot;6&quot;,
-      &quot;category_id&quot;:1,
-      &quot;size&quot;:&quot;45&quot;,
-      &quot;color&quot;: &quot;red&quot;,
-      &quot;material&quot;: {&quot;name&quot;: &quot;Synthetic&quot;, &quot;price&quot;: 100 },
-      &quot;product_id&quot;: 3,
-      &quot;brand_logo&quot;: &quot;file /object&quot;
-      &quot;coupon_id&quot;: &quot;1&quot;,
-      &quot;gst&quot;: &quot;10&quot;,
-      &quot;address&quot;: &quot;jalandhar&quot;,
-      &quot;mobile&quot;: &quot;2763736323&quot;,
-    }
-  ]
-}</code></p>
-
+<p>params.permit(:user_id,:payment_mode,:gst,:total,products: [:product_id,:quantity,:brand_logo,:firm_name,:name,:size,:color,:address,:mobile,:coupon_id,material: [:name,:price]])</p>
+<pre class="highlight sh tab-shell"><code><span class="o">{</span>
+  <span class="s2">"payment_mode"</span>: <span class="s2">"cash"</span>,
+  <span class="s2">"gst"</span>: <span class="s2">"27"</span>,
+  <span class="s2">"total"</span>: 1200,
+  <span class="s2">"products"</span>: <span class="o">[</span>   
+    <span class="o">{</span>
+      <span class="s2">"name"</span>:<span class="s2">"Test Product 3"</span>,
+      <span class="s2">"quantity"</span>:<span class="s2">"6"</span>,
+      <span class="s2">"category_id"</span>:1,
+      <span class="s2">"size"</span>:<span class="s2">"45"</span>,
+      <span class="s2">"color"</span>: <span class="s2">"red"</span>,
+      <span class="s2">"material"</span>: <span class="o">{</span><span class="s2">"name"</span>: <span class="s2">"Synthetic"</span>, <span class="s2">"price"</span>: 100 <span class="o">}</span>,
+      <span class="s2">"product_id"</span>: 3,
+      <span class="s2">"brand_logo"</span>: <span class="s2">"file /object"</span>
+      <span class="s2">"coupon_id"</span>: <span class="s2">"1"</span>,
+      <span class="s2">"address"</span>: <span class="s2">"jalandhar"</span>,
+      <span class="s2">"mobile"</span>: <span class="s2">"2763736323"</span>,
+    <span class="o">}</span>
+  <span class="o">]</span>
+<span class="o">}</span>
+</code></pre>
 <aside class="success">
  User must be authorized.Send user token in the header.
 </aside>
