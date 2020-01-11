@@ -1652,6 +1652,82 @@ No Params
 
 
 
+# Notifications
+
+## Fetch all notifications
+
+> Success-Response:
+
+```json
+
+HTTP 200 OK
+[
+    {
+        "id": 2,
+        "users": [
+            2
+        ],
+        "message": "fjfj",
+        "read": false,
+        "created_at": "2020-01-11T07:37:22.952Z",
+        "updated_at": "2020-01-11T07:37:22.952Z"
+    },
+    {
+        "id": 1,
+        "users": [
+            2
+        ],
+        "message": "teating",
+        "read": true,
+        "created_at": "2020-01-11T07:37:11.289Z",
+        "updated_at": "2020-01-11T07:38:15.811Z"
+    }
+]
+```
+
+Fetch notification of particular user
+
+### HTTP Request
+
+`GET https://amancover.herokuapp.com/v1/notifications`
+
+
+<aside class="success">
+ User must be authorized.Send user token in the header.
+</aside>
+
+## Read Particular notification
+
+> Success-Response:
+
+```json
+
+HTTP 200 OK
+
+  {
+      "msg": 1
+  }
+
+
+```
+Read Particular notification
+
+### HTTP Request
+
+`POST https://amancover.herokuapp.com/v1/readNotification`
+
+### Query Parameters
+
+Parameter | DEscription 
+--------- | ------- 
+id | Notification Id 
+
+<aside class="success">
+ User must be authorized.Send user token in the header.
+</aside>
+
+
+
 
 
 
